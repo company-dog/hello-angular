@@ -4,14 +4,15 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CourseComponent } from './course/course.component';
 import { CoursesComponent } from './courses.component';
-import { AuthorsComponent } from './authors/authors.component';
-import { AuthorComponent } from './author/author.component';
+import { TitleComponent } from './title/title.component';
+import { FormsModule } from '@angular/forms';
+
+import { Casing } from './casing.pipe';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, CoursesComponent, AuthorsComponent, AuthorComponent],
-  imports: [BrowserModule, AppRoutingModule],
+  declarations: [AppComponent, CoursesComponent, TitleComponent, Casing],
+  imports: [BrowserModule, AppRoutingModule, FormsModule],
   providers: [CoursesService],
   bootstrap: [AppComponent]
 })
