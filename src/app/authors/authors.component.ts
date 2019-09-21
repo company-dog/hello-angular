@@ -7,10 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./authors.component.css']
 })
 export class AuthorsComponent implements OnInit {
-  private authors: string[];
+  private readonly authors: string[];
   private count: number;
+
   constructor(readonly service: AuthorsService) {
-    this.authors = service.getAutors();
+    this.authors = [...service.getAutors()];
     this.count = this.authors.length;
   }
 
