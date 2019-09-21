@@ -4,20 +4,23 @@ import { Component, OnInit } from '@angular/core';
   selector: 'app-favorite',
   template: `
     <div>
-      <span class="glyphicon glyphicon-{{ status }}" (click)="onClick()"></span>
+      <span
+        class="glyphicon"
+        [class.glyphicon-star]="isFavorite"
+        [class.glyphicon-star-empty]="!isFavorite"
+        (click)="onClick()"
+      ></span>
     </div>
   `,
   styleUrls: ['./favorite.component.css']
 })
 export class FavoriteComponent implements OnInit {
-  status = 'star';
-  isActive = true;
+  isFavorite: boolean;
 
   constructor() {}
 
   onClick() {
-    this.isActive = !this.isActive;
-    this.isActive ? (this.status = 'star') : (this.status = 'star-empty');
+    this.isFavorite = !this.isFavorite;
   }
 
   ngOnInit() {}
